@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "782801220484",
-    "project_id": "myproject-2855",
-    "storage_bucket": "myproject-2855.appspot.com"
+    "project_number": "5603502720",
+    "project_id": "mylab-503d4",
+    "storage_bucket": "mylab-503d4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:782801220484:android:0b404367f4536e6f9363d1",
+        "mobilesdk_app_id": "1:5603502720:android:0de4222fee72dff738d465",
         "android_client_info": {
-          "package_name": "com.example.lab1"
+          "package_name": "com.lab1.app"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCAIH9Sznuw92yApvbbqsYaiEFMGbPB5qc"
+          "current_key": "AIzaSyBGrNExrW-ihoJ-ocFGxrBo-ZDrbN_2Adc"
         }
       ],
       "services": {

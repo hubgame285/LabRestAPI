@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">lab1</string>
+    <string name="app_name">Lab</string>
+    <string name="username">Username</string>
+    <string name="enter_username">Enter username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="don_t_have_account_sign_up">Don\'t have account? Sign up</string>
+    <string name="register_vn">Đăng ký</string>
+    <string name="register">Sign up</string>
+    <string name="enter_password">Enter password</string>
+    <string name="logout">Logout</string>
+    <string name="login_with_numberphone">Login with numberphone</string>
+    <string name="enter_numberphone">Enter numberphone</string>
+    <string name="comfirm">Comfirm</string>
+    <string name="enter_otp">Enter otp</string>
 </resources>
