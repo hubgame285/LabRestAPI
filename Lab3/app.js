@@ -7,6 +7,9 @@ var indexRouter = require('./routes/index');
 //var apiRouter = require('./routers/api')
 
 var usersRouter = require('./routes/userRoutes');
+var distributorsRouter = require('./routes/distributorsRoutes');
+var fruitsRouter = require('./routes/fruitsRoutes');
+
 const database = require('./config/db');
 var app = express();
 
@@ -23,6 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 //app.use('/api', apiRouter);
 app.use('/users', usersRouter);
+app.use('/distributors', distributorsRouter);
+app.use('/fruits', fruitsRouter);
+
+
 database.connect();
 
 // catch 404 and forward to error handler

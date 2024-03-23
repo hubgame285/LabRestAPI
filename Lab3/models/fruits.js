@@ -6,11 +6,10 @@ const Fruits = new Scheme({
     quantity: {type: Number},
     price: {type: Number},
     status: {type: Number},//1: con hang, 0: het hang, -1: ngung kinh doand
-    image: {type: Array},
+    images: {type: Array},
     description: {type: String},
     id_distributor: {type: Scheme.Types.ObjectId, ref: 'distributor'},
-
-},
+},  
 {
     timestamps: true
 })
