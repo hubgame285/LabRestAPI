@@ -10,6 +10,8 @@ var usersRouter = require("./routes/userRoutes");
 var distributorsRouter = require("./routes/distributorsRoutes");
 var fruitsRouter = require("./routes/fruitsRoutes");
 var uploadsRouter = require("./routes/uploadRoutes");
+var emailRouter = require("./routes/emailRoutes");
+var loginRouter = require("./routes/loginRoutes");
 
 const database = require("./config/db");
 var app = express();
@@ -30,6 +32,8 @@ app.use("/users", usersRouter);
 app.use("/distributors", distributorsRouter);
 app.use("/fruits", fruitsRouter);
 app.use("/uploads", uploadsRouter);
+app.use("/sendmail", emailRouter);
+app.use("/login", loginRouter);
 
 database.connect();
 
