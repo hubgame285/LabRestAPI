@@ -1,1 +1,1 @@
-lab3 is server, including lab4,lab5,la6
+lab3 is server, including lab4,lab5,lab6
