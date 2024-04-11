@@ -30,9 +30,23 @@ router.post('/add', async(req, res) => {
 })
 //hien thi danh sach
 router.get('/list', async (req, res) =>{
-    const result = await modelDistributor.find({})
+
     try {
-        res.send(result)
+        const result = await modelDistributor.find({})
+        // res.send(result)
+        if (result){
+            res.json({
+                "status": 200,
+                "message": "List",
+                "data": result
+            })
+        }else{
+            res.json({
+                "status": 400,
+                "message": "Error load list",
+                "data": []
+            })
+        }
     } catch (error) {
         console.log(error)
     }
@@ -42,7 +56,12 @@ router.get('/getById/:id', async (req, res) =>{
     try {
         const result = await modelDistributor.findById(req.params.id)
         if(result){
-            res.send(result)
+            //res.send(result)
+            res.json({
+                "status": 200,
+                "message": "Da tim thay",
+                "data": result
+            })
         }else{
             res.json({
                 "status": 400,
@@ -64,8 +83,13 @@ router.patch('/edit/:id', async(req, res) => {
     try {
         const result = await modelDistributor.findByIdAndUpdate(req.params.id, req.body)
         if(result){
-            await result.save();
-            res.send(result);
+            const rs = await result.save();
+            //res.send(result);
+            res.json({
+                "status": 200,
+                "message": "Cap nhat thanh cong",
+                "data": rs
+            })
         }else{
             res.json({
                 "status": 400,
@@ -101,6 +125,29 @@ router.delete('/delete/:id', async(req, res) => {
         }
     } catch (error) {
        console.log(error);
+    }
+})
+//search
+router.get('/search', async (req, res) =>{
+
+    try {
+        const key = req.query.key
+        const result = await modelDistributor.find({name:{"$regex": key,"$options":"i"}}).sort({createAt: -1})
+        if (result){
+            res.json({
+                "status": 200,
+                "message": "Tim thay",
+                "data": result
+            })
+        }else{
+            res.json({
+                "status": 400,
+                "message": "Loi khonng co du lieu",
+                "data": []
+            })
+        }
+    } catch (error) {
+        console.log(error)
     }
 })
 

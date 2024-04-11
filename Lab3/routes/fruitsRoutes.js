@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 const modelFruits = require("../models/fruits");
 const Upload = require("../config/upload");
+const JWT = require("jsonwebtoken");
+const SECRECT_KEY = "ViTV";
 
 /* GET users listing. */
 router.get("/test", function (req, res, next) {
@@ -36,8 +38,18 @@ router.post("/add", Upload.array("images", 5), async (req, res) => {
 });
 //hien thi danh sach
 router.get("/list", async (req, res) => {
-  const result = await modelFruits.find({});
   try {
+    const authHeader = req.headers['authorization']
+    console.log('authheader', authHeader)
+    const token = authHeader && authHeader.split(' ')[1]
+    if(!token) return res.sendStatus(401)
+    let payload
+    JWT.verify(token, SECRECT_KEY, (err, _payload) => {
+      if (err instanceof JWT.TokenExpiredError) return res.sendStatus(401)
+      if (err) return res.sendStatus(403)
+      payload = _payload
+    })
+    const result = await modelFruits.find().populate('id_distributor');
     res.send(result);
   } catch (error) {
     console.log(error);
