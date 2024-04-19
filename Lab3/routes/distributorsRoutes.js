@@ -79,7 +79,7 @@ router.get('/getById/:id', async (req, res) =>{
     }
 })
 //update theo id
-router.patch('/edit/:id', async(req, res) => {
+router.put('/edit/:id', async(req, res) => {
     try {
         const result = await modelDistributor.findByIdAndUpdate(req.params.id, req.body)
         if(result){

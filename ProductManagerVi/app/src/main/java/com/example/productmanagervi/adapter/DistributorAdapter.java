@@ -15,6 +15,14 @@ import com.example.productmanagervi.model.Distributor;
 import java.util.List;
 
 public class DistributorAdapter extends RecyclerView.Adapter<DistributorAdapter.DistributorViewHolder>{
+    public interface OnItemClickListener{
+        void  onItemClick(String id);
+        void updateItem(String id, String name);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.click = listener;
+    }
+    private OnItemClickListener click;
     List<Distributor> list;
     public void setData(List<Distributor> ls){
         this.list = ls;
@@ -35,6 +43,22 @@ public class DistributorAdapter extends RecyclerView.Adapter<DistributorAdapter.
         }
         holder.tvID.setText(String.valueOf(position+1));
         holder.tvName.setText(dis.getName());
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = list.get(holder.getAdapterPosition()).getId();
+                String name = list.get(holder.getAdapterPosition()).getName();
+                click.updateItem(id, name);
+            }
+        });
+
+        holder.btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = list.get(holder.getAdapterPosition()).getId();
+                click.onItemClick(id);
+            }
+        });
     }
 
     @Override

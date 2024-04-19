@@ -24,5 +24,10 @@
         android:layout_height="wrap_content"
         android:text="DISTRIBUTOR"
         android:id="@+id/btnDistributor"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="REGISTER"
+        android:id="@+id/btnRegister"/>
 
 </LinearLayout>
